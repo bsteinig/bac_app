@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Counter from './components/counter'
+import Timer from './components/timer'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Counter />
+    <Timer />
   </React.StrictMode>,
+    // 
   document.getElementById('root')
 );
 

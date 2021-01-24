@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Dashboard from './components/Dashboard'
+import FormPage from './components/FormPage'
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+    const [isComplete, setComplete] = useState(false)
+    const [userData, setUserData] = useState({
+        sex: "",
+        weight: "",
+    })
+
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/">
+                    <FormPage isComplete={isComplete} setComplete={setComplete} userData={userData} setUserData={setUserData}/>
+                </Route>
+                <Route path="/Dashboard" render={() => isComplete(Dashboard)}/>
+            </Switch>
+        </BrowserRouter>
+    )
+  
 }
 
 export default App;
