@@ -98,7 +98,6 @@ Landing Page
 }
 
 .blurred-box {
-  opacity: 80%;
   margin: 25px;
   background-color: var(--bright-pink);
   border-radius: 10px;
