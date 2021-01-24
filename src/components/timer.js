@@ -4,7 +4,7 @@ import '../App.css';
 function Timer() {
     const calculateTimeLeft = () => {
         let year = new Date().getFullYear();
-        let difference = +new Date(`10/01/${year}`) - +new Date();
+        let difference = +new Date(`01/23/${year}`) - +new Date();
         
         let timeLeft = {};
 
@@ -20,16 +20,15 @@ function Timer() {
     }
 
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-    <^>
-    const [year] = useState(new Date().getFullYear(););
-    <^>
+    //const [year] = useState(new Date().getFullYear());
+    const timerComponents = [];
 
     useEffect(() => {
       const timer = setTimeout(() => {
         setTimeLeft(calculateTimeLeft());
       }, 1000);
 
-      const timerComponents = [];
+      
 
       Object.keys(timeLeft).forEach((interval) => {
         if (!timeLeft[interval]) {
