@@ -6,7 +6,7 @@ function Dashboard({userData}) {
 
     return (
         <div>
-            <h1 className = "title">BAC Track</h1>
+            <h1 className = "title t3">BAC Track</h1>
             <Counter userData={userData}/>
             <Info />
         </div>

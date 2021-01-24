@@ -1,5 +1,11 @@
 # BAC Tracker
 
+ <p align="center">
+    <img src="./src/assets/BACTRACK.png" alt="Logo" />
+  </a>
+</p>
+
+
 This application helps user keep track of their Blood Alcohol Content. 
 
 ## Features
