@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link} from 'react-router-dom'
 import { Formik, Form as Formk ,Field, ErrorMessage } from 'formik'
 import * as yup from 'yup' 
+import Bg from '../assets/bg.png'
+import '../App.css';
+
+
 
 const initialValues = {
     sex: '',
@@ -16,6 +19,7 @@ const validationSchema = yup.object({
 
 function FormPage({ setComplete, setUserData}) {
 
+
     const onSubmit = (values) => {
         console.log('Form Data', values)
         setComplete(true)
@@ -26,15 +30,17 @@ function FormPage({ setComplete, setUserData}) {
     }
 
     return (
+        <div className="form-bg"
+        style={{ backgroundImage: `url(${Bg})`}}>
         <Formik 
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
         >
-            <Formk>
-                <h1 className="title"> Form </h1>
+            <Formk className="form-fields">
+                <h1 className="form-title"> Let's go over some details </h1>
                 <div className="form-control">
-                    <label htmlFor="sex">Sex</label>
+                    <label className="form-label" htmlFor="sex">Sex</label>
                     <Field type="text" as="select" id="sex" name="sex" placeholder="select">
                         <option value="" disabled selected hidden>Please Choose</option>
                         <option value="male">Male</option>
@@ -42,15 +48,15 @@ function FormPage({ setComplete, setUserData}) {
                     </Field>
                     <ErrorMessage name="sex"/>
                 </div>
-
                 <div className="form-control">
-                    <label htmlFor="weight">Weight</label>
-                    <Field type="number" id="weight" name="weight"/>
-                    <ErrorMessage name="weight"/>
+                        <label  className="form-label" htmlFor="weight">Weight</label>
+                        <Field type="number" id="weight" name="weight"/>
+                        <ErrorMessage name="weight"/>
                 </div>
-                <button className="submit-button" type="submit">Submit</button>
+                <button className="submit-btn" type="submit">Submit</button>
             </Formk>
         </Formik>
+        </div>
     )
 }
 
