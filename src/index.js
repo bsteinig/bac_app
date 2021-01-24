@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Counter from './components/counter'
 
 ReactDOM.render(
   <React.StrictMode>
