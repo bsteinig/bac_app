@@ -36,7 +36,7 @@ function Counter({userData}) {
     });
 
   return (
-    <div>
+    <div className="onTop">
         <button className ="blurred-box add-drink" onClick={handleButtonClick}><h1>Add Drink</h1></button>
         <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}}> Count: {counter}</div>
         <ReactTimer

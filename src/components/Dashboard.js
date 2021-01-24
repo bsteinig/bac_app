@@ -17,7 +17,6 @@ function Dashboard({userData}) {
                     </div>
                 </div>
             </div>
-            
             <Counter userData={userData}/>
         </div>
     )
