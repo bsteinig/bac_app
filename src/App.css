@@ -245,6 +245,8 @@ Field[type="number"]{
   border-radius: 20px;
   color: whitesmoke;
   margin: 0 40%;
+  z-index: 2;
+
 }
 
 /************
@@ -261,6 +263,7 @@ Dashboard
   padding: 20px !important;
   border-radius: 20px;
   color: whitesmoke;
+  z-index: 10;
 }
 
 .add-drink h1 {
