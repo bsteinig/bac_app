@@ -4,7 +4,6 @@ import ReactTimer from "@xendora/react-timer"
 
 function Counter({userData}) {
     const [counter, setCounter] = useState(0)
-    const [bac, setBAC] = useState(0)
     const weight = parseInt(userData.weight);
     const sex = userData.sex == 'male' ? .73 : .66; 
 

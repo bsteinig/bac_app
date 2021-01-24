@@ -2,6 +2,8 @@
 Global Styling
 *********/
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500&display=swap');
 
 :root {
    --bright-pink: #FF7099;
@@ -12,40 +14,113 @@ Global Styling
    --light-blue: #CFE4F2;
    --med-blue: #4f9ccf;
    --dark-blue: #233043;
+   --diplay-font: "Poppins", Helvetica, Arial, sans-serif;
+   --copy-fony: "Fira Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
 
 }
 
 * {
-  background-color: var(--dark-blue);
-  color: var(--light-blue);
-}
-
-body {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  text-align: center;
+  font-family: var(--display-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App {
-  text-align: center;
-}
+/************
+Landing Page
+************/
 
-
-.App-header {
+.landing-page {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  font-family: var(--diplay-font);
+  font-weight: 500;
+  font-size: 4rem;
+  color: var(--dark-blue);
 }
 
-/**********/
+.launch-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0,0,0,0);
+  z-index: 10;
+}
 
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: var(--dark-gray);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.row {
+  display: flex;
+  text-overflow: ellipsis;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sub-head{
+  margin: 50px;
+}
+
+.top{
+  margin-top: 75px;
+}
+
+@media screen and (min-width: 418px) {
+  .bg-image{
+    overflow: hidden;
+    transform: rotate(90deg);
+    height: 100vh;
+  }
+}
+
+/************
+Form Page
+************/
+
+.form-control{
+  text-align: left;
+  margin-left: 42%;
+}
+
+.form-control{
+  text-align: left;
+  margin-left: 42%;
+}
+
+.form-control{
+  text-align: left;
+  margin-left: 42%;
+}
+
+/************
+Dashboard
+************/
+
+.stats{
+  text-align: left;
+  margin-left: 42%;
+}
+
+li {
+  text-align: left;
+}

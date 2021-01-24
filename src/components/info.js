@@ -5,7 +5,7 @@ function Info() {
 
   return (
     <div>
-        <ul>
+        <ul class="stats">
             <li>.40% - coma </li>
             <li>.30% - in a drunken stupor </li>
             <li>.25% - emotionally and physically numb </li>

@@ -32,7 +32,7 @@ function FormPage({ setComplete, setUserData}) {
             onSubmit={onSubmit}
         >
             <Formk>
-                User Info
+                <h1 className="title"> Form </h1>
                 <div className="form-control">
                     <label htmlFor="sex">Sex</label>
                     <Field type="text" as="select" id="sex" name="sex" placeholder="select">

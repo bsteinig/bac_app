@@ -7,23 +7,27 @@ import './App.css';
 
 function App() {
         
-    const [toContinue, setContinue] = useState(false)
+    const [toContinue, setContinue] = useState(true)
     const [isComplete, setComplete] = useState(false)	   
     const [userData, setUserData] = useState({	
         sex: "",   
         weight: "",	        
     })	    
-
-    if(isComplete){
+    if(toContinue){
         return (
-            <Dashboard userData={userData}/>
+            <LandingPage setContinue={setContinue}/>
         )
     } else {
-        return (
-            <FormPage setComplete={setComplete} setUserData={setUserData}/>
-        )
+        if(isComplete){
+            return (
+                <Dashboard userData={userData}/>
+            )
+        } else {
+            return (
+                <FormPage setComplete={setComplete} setUserData={setUserData}/>
+            )
+        }
     }
-
 }
 
 export default App
