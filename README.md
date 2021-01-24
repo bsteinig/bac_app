@@ -1,7 +1,6 @@
-# BAC Tracker
-
  <p align="center">
-    <img src="./src/assets/BACTRACK.png" alt="Logo" />
+    <h1>BAC Tracker</h1>
+    <img src="./src/assets/BACTRACK.png" alt="Logo" height="150px" width="150px" />
   </a>
 </p>
 

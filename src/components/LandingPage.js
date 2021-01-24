@@ -1,5 +1,6 @@
 import React from 'react' 
 import Bg from '../assets/bg.png'
+import logo from '../assets/BACTRACK.png'
 
 function LandingPage({setContinue}) {
 
@@ -9,26 +10,21 @@ function LandingPage({setContinue}) {
 
     return (
         <div className="landing-page" style={{ backgroundImage: `url(${Bg})`}}>
-            <h1 className="title">BAC Track</h1>
-            <div className="row">
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
+            <div className="logobox">
+                <div className = "outer-circle circle">
+                    <div className="circle">
+                        <img src={logo} width="150px" height="150px" alt="logo"/>
+                    </div>
+                </div>
             </div>
-            <br></br>
-            <h2 className= "top sub-head"> Keep track of your drinks </h2>
-            <br></br>
-            <h2 className= "sub-head"> Know your limits </h2>
-            <br></br>
-            <h2 className= "sub-head"> Be safe </h2>
-            <br></br>
-            <h3> Click anywhere to start </h3>
+            <div className="landing-text">
+                <h2 className= "headline"> Keep Track of Your Drinks </h2>
+                <h4 className= "sub-head"> Know your limits. </h4>
+                <h4 className= "sub-head"> Be safe. </h4>
+            </div>
+            <div className="blurred-box">
+                <h3 className="btn-text"> Click anywhere to start </h3>
+            </div>
             <button className="launch-btn btn" onClick={HandleOnClick}>Launch App</button>
         </div>
         
