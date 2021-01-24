@@ -1,40 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import FormPage from './components/FormPage'
 import LandingPage from './components/LandingPage'
 import './App.css';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props)
+function App() {
+        
+    const [toContinue, setContinue] = useState(false)
+    const [isComplete, setComplete] = useState(false)	   
+    const [userData, setUserData] = useState({	
+        sex: "",   
+        weight: "",	        
+    })	    
 
-        this.state = {
-            isComplete: false,
-            sex: "",
-            weight: 0
-        }
-    }
-    
-
-    ifFormComplete(Component) {
-        return this.state.isComplete ?
-            <Component/> :
-            <FormPage/>
-    }
-
-    render() {
+    if(isComplete){
         return (
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path="/">
-                        <LandingPage/>
-                    </Route>
-                    <Route path="/dashboard" render={() => this.ifFormComplete(Dashboard)}/>
-                </Switch>
-            </BrowserRouter>
+            <Dashboard userData={userData}/>
+        )
+    } else {
+        return (
+            <FormPage setComplete={setComplete} setUserData={setUserData}/>
         )
     }
+
 }
 
 export default App

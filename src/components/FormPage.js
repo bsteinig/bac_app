@@ -14,7 +14,7 @@ const validationSchema = yup.object({
 })
 
 
-function FormPage({isComplete, setComplete, userData, setUserData}) {
+function FormPage({ setComplete, setUserData}) {
 
     const onSubmit = (values) => {
         console.log('Form Data', values)
@@ -23,10 +23,6 @@ function FormPage({isComplete, setComplete, userData, setUserData}) {
             sex: values.sex,
             weight: values.weight
         });
-        console.log('isComplete', isComplete)
-        return (
-            <Link to="/dashboard"></Link>
-        )
     }
 
     return (

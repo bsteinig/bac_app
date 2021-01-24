@@ -1,9 +1,15 @@
 import React from 'react' 
+import Counter from './counter'
+import Info from './info'
 
-function Dashboard() {
+function Dashboard({userData}) {
 
     return (
-        <div>Hello User!</div>
+        <div>
+            <div>BAC Tracker</div>
+            <Counter userData={userData}/>
+            <Info />
+        </div>
     )
 }
 
