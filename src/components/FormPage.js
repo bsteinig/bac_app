@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link} from 'react-router-dom'
 import { Formik, Form as Formk ,Field, ErrorMessage } from 'formik'
 import * as yup from 'yup' 
 
@@ -23,6 +24,9 @@ function FormPage({isComplete, setComplete, userData, setUserData}) {
             weight: values.weight
         });
         console.log('isComplete', isComplete)
+        return (
+            <Link to="/dashboard"></Link>
+        )
     }
 
     return (

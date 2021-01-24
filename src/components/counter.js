@@ -10,6 +10,11 @@ function Counter() {
         setCounter(counter => counter + 1)
     }
 
+    const formatter = new Intl.NumberFormat('en-US', {
+      minimumFractionDigits: 3,      
+      maximumFractionDigits: 3,
+    });
+
   return (
     <div>
         <button onClick={handleButtonClick}>Add Drink</button>
@@ -20,7 +25,11 @@ function Counter() {
         onEnd={value => console.log('ENDED WITH VALUE', value)}
         onTick={value => value + 1}
       >
-        {time => <div><div>Timer: {time}</div><div>BAC: {.4*1.5 + time/3600}</div></div>}
+        {time => 
+            <div>
+              <div>Time: {time/3600}:{time/60}:{time}</div>
+              <div>BAC: {Math.abs(formatter.format((counter*.4*1.5*5.4)/(125*.66) - .015*(time/3600)))}</div>
+            </div>}
       </ReactTimer>
     </div>
   );
