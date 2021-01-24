@@ -23,7 +23,7 @@ function LandingPage({setContinue}) {
                 <h4 className= "sub-head"> Know your limits. </h4>
                 <h4 className= "sub-head"> Be safe. </h4>
             </div>
-            <div className="blurred-box">
+            <div className="submit-btn">
                 <h3 className="btn-text"> Click anywhere to start </h3>
             </div>
             <button className="launch-btn btn" onClick={HandleOnClick}>Launch App</button>
