@@ -6,13 +6,16 @@ function Info() {
 
   const HandleBtnClick = () => {
     setClicked(!buttonClicked)
+    console.log(buttonClicked)
   }
 
   return (
     <div>
-        <button onClick={HandleBtnClick}> More Information </button>
-        { buttonClicked ? 
-          <ul class="stats">
+        <div className="info-bar">
+          <button onClick={HandleBtnClick} className="info-btn"> <i className="fas fa-info-circle"></i> </button>
+        </div>
+          <div className={`info-screen ${buttonClicked ? "show-info" : ""}`}>
+          <ul className="stats">
             <li>.40% - coma </li>
             <li>.30% - in a drunken stupor </li>
             <li>.25% - emotionally and physically numb </li>
@@ -21,8 +24,8 @@ function Info() {
             <li>.10% - lack of coordination and balance (legally drunk) </li>
             <li>.05% - warm and relaxed </li>
             <li>.02% - little lightheaded </li>
-        </ul> :
-         <></>}
+        </ul> 
+        </div>
     </div>
   );
 }

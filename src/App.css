@@ -34,6 +34,10 @@ Global Styling
 Landing Page
 ************/
 
+.divider{
+  margin-top: 70px;
+}
+
 .landing-page {
   overflow: hidden;
   display: flex;
@@ -46,7 +50,6 @@ Landing Page
 }
 
 .logobox {
-  margin-top: 10%;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -97,9 +100,8 @@ Landing Page
 .blurred-box {
   opacity: 50%;
   margin: 25px;
-  animation: glowing 10000ms infinite;
   background-color: rgba(255,255,255,.25);
-  backdrop-filter: blur(8px);
+  filter: blur(8px);
   filter: drop-shadow(0 0 0.75rem var(--light-blue));
   border-radius: 10px;
 }
@@ -206,6 +208,7 @@ Form Page
   margin: 25px 0;
   justify-content: center;
   align-items: center;
+  font-size: 50px;
 }
 
 .form-label {
@@ -234,42 +237,117 @@ Field[type="number"]{
 }
 
 .submit-btn{
-  width: 50px;
-  height: 20px;
-  text-align: center;
+  background-color: var(--bright-pink);
+  border: none;
+  font-family: var(--diplay-font);
+  font-weight: 700;
+  font-stretch: extra-expanded;
+  font-size: 20px;
+  padding: 20px !important;
+  border-radius: 20px;
+  color: whitesmoke;
+  margin: 0 40%;
 }
 
 /************
 Dashboard
 ************/
 
-.stats{
-  text-align: left;
-  margin-left: 42%;
-}
-
-
-li {
-  text-align: left;
-}
-
-.t3 {
-  margin-bottom: 20px;
-}
-
 .add-drink{
-  width: 80px;
-  height: 60px;
   background-color: var(--bright-pink);
-  border-color: var(--bright-pink);
-  border-radius: 100;
+  border: none;
+  font-family: var(--diplay-font);
+  font-weight: 700;
+  font-stretch: extra-expanded;
+  font-size: 20px;
+  padding: 20px !important;
+  border-radius: 20px;
+  color: whitesmoke;
+}
+
+.add-drink h1 {
+  z-index: 10;
+  opacity: 100;
+}
+
+.data .bac {
+  font-family: var(--copy-fony);
+  font-weight: 500;
+  color: whitesmoke;
 }
 
 .data{
+  font-size: 15px;
   margin: 30px;
 }
 
 .bac{
-  font-size: 100px;
+  font-size: 75px;
   margin-bottom: 60px;
+}
+
+@media screen and (min-width: 690px) {
+  .data {
+    font-size: 25px;
+  }
+  .bac {
+    font-size: 100px;
+  }
+  .stats li {
+    font-size: 50px;
+  }
+}
+
+
+/********
+INFO
+********/
+.info-bar {
+  display: flex;
+  float: right;
+}
+
+.stats {
+  margin-top: 50px;
+  list-style-type: none;
+  justify-content: center;
+  font-family: var(--copy-fony);
+  color: var(--dark-blue);
+  font-size: 15px;
+  text-align: center;
+}
+
+.stats li {
+  margin-bottom: 5px;
+}
+
+.info-btn {
+  background: var(--med-blue);
+  color: whitesmoke;
+  border: none;
+  padding: .5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 0 0 0 5px;
+  z-index: 1000;
+}
+
+
+.info-screen {
+    background-color: var(--light-blue);
+    position: fixed;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0;
+}
+
+.show-info {
+  z-index: 9;
+  opacity: 1;
 }

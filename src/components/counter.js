@@ -37,8 +37,8 @@ function Counter({userData}) {
 
   return (
     <div>
-        <button className ="add-drink" onClick={handleButtonClick}>Add Drink</button>
-        <div className ="data"> Count: {counter}</div>
+        <button className ="blurred-box add-drink" onClick={handleButtonClick}><h1>Add Drink</h1></button>
+        <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}}> Count: {counter}</div>
         <ReactTimer
         start={0}
         end={() => false}
@@ -47,11 +47,11 @@ function Counter({userData}) {
       >
         {time => 
             <div>
-              <div className ="data" >Time: 
+              <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}} >Time: 
                 {(Math.floor(time/3600)).toString().padStart(2, '0')}:
                 {Math.floor((time/60)%60).toString().padStart(2, '0')}:
                 {Math.floor(time%60).toString().padStart(2, '0')}</div>
-              <div className ="bac">BAC: 
+              <div className ="bac" style={{color: "#233043", fontFamily: "Poppins,sans-serif", fontSize: "75px"}}>BAC: 
                 {Math.abs(formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(time/3600)))}</div>
             </div>}
       </ReactTimer>

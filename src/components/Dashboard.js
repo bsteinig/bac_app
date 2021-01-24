@@ -2,15 +2,22 @@ import React from 'react'
 import Counter from './counter'
 import Info from './info'
 import Bg from "../assets/bg.png"
+import logo from "../assets/BACTRACK.png"
 
 function Dashboard({userData}) {
 
     return (
         <div className="form-bg"
         style={{ backgroundImage: `url(${Bg})`}}>
-            <h1 className = "title t3">BAC Track</h1>
-            <Counter userData={userData}/>
             <Info />
+             <div className="logobox">
+                <div className = "outer-circle circle">
+                    <div className="circle">
+                        <img src={logo} width="150px" height="150px" alt="logo"/>
+                    </div>
+                </div>
+            </div>
+            <Counter userData={userData}/>
         </div>
     )
 }

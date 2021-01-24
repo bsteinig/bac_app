@@ -10,7 +10,8 @@ function LandingPage({setContinue}) {
 
     return (
         <div className="landing-page" style={{ backgroundImage: `url(${Bg})`}}>
-            <div className="logobox">
+        <div className="divider"></div>
+          <div className="logobox">
                 <div className = "outer-circle circle">
                     <div className="circle">
                         <img src={logo} width="150px" height="150px" alt="logo"/>
