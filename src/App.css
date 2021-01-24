@@ -98,9 +98,11 @@ Landing Page
 }
 
 .blurred-box {
-  opacity: 80%;
+  opacity: 50%;
   margin: 25px;
   background-color: rgba(255,255,255,.25);
+  filter: blur(8px);
+  filter: drop-shadow(0 0 0.75rem var(--light-blue));
   border-radius: 10px;
 }
 
