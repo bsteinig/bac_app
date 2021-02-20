@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik, Form as Formk ,Field, ErrorMessage } from 'formik'
 import * as yup from 'yup' 
-import Bg from '../assets/bg.png'
 import '../App.css';
 
 
@@ -17,7 +16,7 @@ const validationSchema = yup.object({
 })
 
 
-function FormPage({ setComplete, setUserData}) {
+function FormPage({complete, setComplete, HandleCompleteClick, setUserData}) {
 
 
     const onSubmit = (values) => {
@@ -27,18 +26,18 @@ function FormPage({ setComplete, setUserData}) {
             sex: values.sex,
             weight: values.weight
         });
+        HandleCompleteClick();
     }
 
     return (
-        <div className="form-bg"
-        style={{ backgroundImage: `url(${Bg})`}}>
+        <div className="form-page comp" id="form">
         <Formik 
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
         >
             <Formk className="form-fields">
-                <h1 className="form-title"> Let's go over some details </h1>
+                <h1 className="form-title"> Let's get to know you </h1>
                 <div className="form-control">
                     <label className="form-label" htmlFor="sex">Sex</label>
                     <Field type="text" as="select" id="sex" name="sex" placeholder="select">
@@ -53,7 +52,7 @@ function FormPage({ setComplete, setUserData}) {
                         <Field type="number" id="weight" name="weight"/>
                         <ErrorMessage name="weight"/>
                 </div>
-                <button className="submit-btn" type="submit">Submit</button>
+                <button className="submit-btn" type="submit">Continue</button>
             </Formk>
         </Formik>
         </div>

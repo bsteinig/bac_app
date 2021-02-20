@@ -1,23 +1,16 @@
 import React from 'react' 
 import Counter from './counter'
 import Info from './info'
-import Bg from "../assets/bg.png"
-import logo from "../assets/BACTRACK.png"
 
-function Dashboard({userData}) {
+
+function Dashboard({userData, complete, setStart, setComplete, HandleHomeClick, HandleExitClick}) {
 
     return (
-        <div className="form-bg"
-        style={{ backgroundImage: `url(${Bg})`}}>
+        <div className="dashboard-page comp" id="dashboard">
             <Info />
-             <div className="logobox">
-                <div className = "outer-circle circle">
-                    <div className="circle">
-                        <img src={logo} width="150px" height="150px" alt="logo"/>
-                    </div>
-                </div>
-            </div>
             <Counter userData={userData}/>
+            <button onClick={HandleHomeClick}>Home</button>
+            <button onClick={HandleExitClick}>Finished</button>
         </div>
     )
 }

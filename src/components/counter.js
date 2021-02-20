@@ -35,10 +35,13 @@ function Counter({userData}) {
       maximumFractionDigits: 3,
     });
 
+    let time2 = new Date().toLocaleString();
+
   return (
     <div className="onTop">
         <button className ="blurred-box add-drink" onClick={handleButtonClick}><h1>Add Drink</h1></button>
         <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}}> Count: {counter}</div>
+        <p>The time is {time2}.</p>
         <ReactTimer
         start={0}
         end={() => false}
@@ -52,7 +55,7 @@ function Counter({userData}) {
                 {Math.floor((time/60)%60).toString().padStart(2, '0')}:
                 {Math.floor(time%60).toString().padStart(2, '0')}</div>
               <div className ="bac" style={{color: "#233043", fontFamily: "Poppins,sans-serif", fontSize: "75px"}}>BAC: 
-                {Math.abs(formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(time/3600)))}</div>
+                {formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(time/3600)) > 0 ? formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(time/3600)) : 0}</div>
             </div>}
       </ReactTimer>
     </div>
