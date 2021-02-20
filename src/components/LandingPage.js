@@ -10,9 +10,7 @@ function LandingPage({start, setStart, HandleStartClick}) {
                 <h4 className= "sub-head"> Know your limits. </h4>
                 <h4 className= "sub-head"> Be safe. </h4>
             </div>
-            <div className="submit-btn">
-                <button onClick={HandleStartClick}>Get Started</button>
-            </div>
+            <button className="btn landing-btn" onClick={HandleStartClick}>Get Started</button>
             
         </div>
         

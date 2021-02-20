@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Dashboard from './components/Dashboard'
 import FormPage from './components/FormPage'
 import LandingPage from './components/LandingPage'
@@ -16,6 +16,9 @@ function App() {
         weight: "",	        
     })
   
+    useEffect(() => {
+        document.getElementById("bg").style.backgroundImage= `url(${landing})`
+    }, [])
   
   const HandleStartClick = () => {
     setStart(false);
@@ -31,13 +34,13 @@ function App() {
       
     }else {
       document.getElementById("form").style.opacity = "1";
-      document.getElementById("form").style.height = "85%" 
+      document.getElementById("form").style.height = "80%" 
       document.getElementById("bg").style.backgroundImage= `url(${form})`
       document.getElementById("logobox").style.paddingTop = ".65rem"
-      document.getElementById("circle").style.height = "120px"
-      document.getElementById("circle").style.width = "120px"
-      document.getElementById("outer-circle").style.height = "127px"
-      document.getElementById("outer-circle").style.width = "127px";
+      document.getElementById("circle").style.height = "150px"
+      document.getElementById("circle").style.width = "150px"
+      document.getElementById("outer-circle").style.height = "160px"
+      document.getElementById("outer-circle").style.width = "160px";
     }
     document.getElementById("landing").style.height = "0";
     document.getElementById("landing").style.opacity = "0";
@@ -62,7 +65,7 @@ function App() {
     document.getElementById("dashboard").style.height = "0";
     document.getElementById("dashboard").style.opacity = "0";
     document.getElementById("landing").style.opacity = "1"; 
-    document.getElementById("landing").style.height = "65%";
+    document.getElementById("landing").style.height = "55%";
     document.getElementById("bg").style.backgroundImage= `url(${landing})`
     document.getElementById("logobox").style.paddingTop = "2rem"
     document.getElementById("circle").style.height = "240px"
@@ -77,7 +80,7 @@ function App() {
     document.getElementById("dashboard").style.height = "0";
     document.getElementById("dashboard").style.opacity = "0";
     document.getElementById("landing").style.opacity = "1"; 
-    document.getElementById("landing").style.height = "65%";
+    document.getElementById("landing").style.height = "55%";
     document.getElementById("bg").style.backgroundImage= `url(${landing})`
     document.getElementById("logobox").style.paddingTop = "2rem"
     document.getElementById("circle").style.height = "240px"

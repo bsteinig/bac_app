@@ -135,7 +135,7 @@ Components
 }
 
 .landing-page {
-  height: 65%;
+  height: 55%;
   background-color: var(--med-blue);
   transition: 1s ease-in-out;
   width: 100%;
@@ -160,3 +160,138 @@ Components
   overflow: hidden;
   opacity: 0;
 }
+
+/***********
+Landing Page
+***********/
+
+.landing-text {
+  display: block;
+  font-family: var(--diplay-font);
+  color: var(--light-blue);
+  text-align: left !important;
+  justify-content: left;
+  margin-bottom: 2rem;
+}
+
+.headline {
+  font-size: 2rem;
+}
+
+.sub-head {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.75rem;
+}
+
+.landing-btn {
+  background-color: var(--light-blue);
+  color: var(--med-blue);
+}
+
+.landing-btn:hover {
+	background-color: #386f94;
+  color: var(--med-blue);
+}
+
+/*********
+Form Page
+*********/
+.form-title {
+  font-family: var(--diplay-font);
+  color: var(--light-pink);
+  font-weight: 700;
+  font-stretch: condensed;
+  font-size: 2rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  font-weight: 700;
+  font-stretch:extra-expanded;
+  font-family: var(--diplay-font);
+  color: var(--light-pink);
+  font-size: 1.75rem;  
+}
+
+.form-control {
+  margin-left: 4rem;
+  justify-content: left;
+  text-align: left;
+  display:flexbox;
+  flex-direction: column;
+}
+
+.error-msg {
+  color: var(--dark-gray);
+  font-family: var(--copy-fony);
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-align: left;
+}
+
+.form-btn {
+  background-color: var(--light-pink);
+  color: var(--bright-pink);
+}
+
+.form-btn:hover {
+  background-color: #b44f6b;
+  color: var(--bright-pink);
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+#sex {
+  width: 100%;
+  min-width: 11rem;
+  max-width: 13rem;
+  min-height: 2.25rem;
+  border: none;
+  border-radius: 1.25rem;
+  padding: 0.25rem .25rem .25rem 1rem;
+  font-family: var(--copy-fony);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--dark-gray);
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: var(--light-pink);
+}
+
+/*********
+Button Styling
+*********/
+
+.btn {
+	
+	border-radius: 1rem;
+  border: none;
+	display:inline-block;
+	cursor:pointer;
+	font-family: var(--diplay-font);
+	font-size: 2rem;
+	font-weight: 700;
+	padding: 1rem 1.3rem;
+	text-decoration: none;
+  font-stretch: expanded;
+}
+
+.spacer {
+  height: 1.5rem;
+}
+
