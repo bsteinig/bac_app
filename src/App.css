@@ -148,7 +148,7 @@ Components
   border-radius: 5rem 5rem 0  0;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: .5rem;
   justify-content: center space-between;
   align-items: center;
 }
@@ -342,11 +342,15 @@ Button Styling
 	display:inline-block;
 	cursor:pointer;
 	font-family: var(--diplay-font);
-	font-size: .9rem;
+	font-size: .85rem;
 	font-weight: 500;
-	padding: .3rem .7rem;
+	padding: .4rem .7rem;
 	text-decoration: none;
   min-width: 4rem;
+}
+
+.color-btn {
+  background-color: var(--med-blue);
 }
 
 .spacer {
@@ -354,9 +358,9 @@ Button Styling
 }
 
 .btn-group {
-  display: flex;
-  flex-direction: row;
-  justify-content:space-evenly
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 }
 
 /************
@@ -395,13 +399,6 @@ Info Popup
 Dashboard
 **********/
 
-.clock {
-  border-radius: 10rem;
-  width: 10rem;
-  height: 10rem;
-  background-color: whitesmoke;
-}
-
 .bac-title {
   font-family: var(--diplay-font);
   font-size: 3.75rem;
@@ -415,7 +412,7 @@ Dashboard
 .bac-num {
   font-family: var(--diplay-font);
   font-size: 6rem;
-  color: var(--med-blue);
+  color: var(--dark-blue);
   font-weight: 700;
   line-height: 5rem;
 }
@@ -423,12 +420,104 @@ Dashboard
 .data {
   font-weight: 700;
   margin-top: .3rem;
-  margin-bottom: .25rem;
+  margin-bottom: .45rem;
   font-family: var(--diplay-font);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: var(--med-blue);
 }
 
 .drink-count {
   color: var(--dark-blue);
+}
+
+/*Testing Clock*/
+
+.clock {
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  background-color: whitesmoke;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin: 25px auto;
+}
+
+.clock-time {
+  font-weight: 700;
+  font-family: var(--diplay-font);
+  font-size: 1.7rem;
+  color: var(--dark-blue);
+  text-align: center;
+  margin: 40% 0%;
+}
+
+.outer-clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: #fefefc;
+  overflow: hidden;
+}
+
+.outer-clock-face::after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
+
+.outer-clock-face::before,
+.outer-clock-face::after,
+.outer-clock-face .marking{
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 20rem;
+  background:black;
+  z-index: 0;
+  top: -15%;
+  left: 50%;
+}
+
+.outer-clock-face .marking {
+  background:black;
+  width: 3px;
+}
+
+.outer-clock-face .marking.marking-one {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  transform: rotate(30deg)
+}
+
+.outer-clock-face .marking.marking-two {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg)
+}
+
+.outer-clock-face .marking.marking-three {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  transform: rotate(120deg)
+}
+
+.outer-clock-face .marking.marking-four {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  transform: rotate(150deg)
+}
+
+.inner-clock-face {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #fefefc;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 1;
 }

@@ -9,6 +9,8 @@ import form from './assets/FormScreen.png'
 import dash from './assets/DashboardScreen.png'
 import './App.css';
 
+const LOCAL_STORAGE_KEY = "react-event-list_events"
+
 function App() {
 
     const [counter, setCounter] = useState(0);
@@ -17,25 +19,44 @@ function App() {
         minutes: new Date().getMinutes(),
         seconds: new Date().getSeconds()
     })
-    const [start, setStart] = useState(true);
     const [complete, setComplete] = useState(false);
+    const [currPage, setCurrPage] = useState(0);
     const [info, setInfo] = useState(false);
     const [userData, setUserData] = useState({	
         sex: "",   
         weight: "",	        
     })
   
-    useEffect(() => {
+    useEffect( (events) => {
         document.getElementById("bg").style.backgroundImage= `url(${landing})`
+        const storageEvents = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        if(storageEvents) {
+            setInitTime(storageEvents[0])
+            setCounter(storageEvents[1])
+            setUserData(storageEvents[2])
+            setComplete(storageEvents[3])
+            if(storageEvents[4] === 0){
+                HandleHomeClick()
+            }else if(storageEvents[4] === 1){
+                HandleStartClick()
+            }else{
+                HandleCompleteClick()
+            }
+        }
     }, [])
+
+    useEffect( () => {
+        var arr = [initTime, counter, userData, complete, currPage]
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(arr))
+    }, [initTime, counter, userData, complete, currPage])
   
   const HandleInfoClick = () => {
       setInfo(info => !info)
   }
 
   const HandleStartClick = () => {
-    setStart(false);
     if(complete){ 
+      setCurrPage(2);
       document.getElementById("dashboard").style.opacity = "1";
       document.getElementById("dashboard").style.height = "93%"
       document.getElementById("bg").style.backgroundImage= `url(${dash})`
@@ -48,6 +69,7 @@ function App() {
       document.getElementById("outer-circle").style.width = "70px";
       
     }else {
+      setCurrPage(1)
       document.getElementById("form").style.opacity = "1";
       document.getElementById("form").style.height = "80%" 
       document.getElementById("bg").style.backgroundImage= `url(${form})`
@@ -57,13 +79,13 @@ function App() {
       document.getElementById("outer-circle").style.height = "160px"
       document.getElementById("outer-circle").style.width = "160px";
     }
-    
     document.getElementById("landing").style.height = "0";
     document.getElementById("landing").style.opacity = "0";
   }
 
   const HandleCompleteClick = () => {
     setComplete(true);
+    setCurrPage(2)
     document.getElementById("form").style.height = "0"; 
     document.getElementById("form").style.opacity = "0";
     document.getElementById("dashboard").style.opacity = "1";  
@@ -80,7 +102,7 @@ function App() {
   }
 
   const HandleHomeClick = () => {
-    setStart(true);
+    setCurrPage(0)
     document.getElementById("dashboard").style.height = "0";
     document.getElementById("dashboard").style.opacity = "0";
     document.getElementById("landing").style.opacity = "1"; 
@@ -96,9 +118,9 @@ function App() {
   }
 
   const HandleExitClick = () => {
-    setStart(true);
     setComplete(false);
     setCounter(0);
+    setCurrPage(0)
     document.getElementById("dashboard").style.height = "0";
     document.getElementById("dashboard").style.opacity = "0";
     document.getElementById("landing").style.opacity = "1"; 
@@ -126,7 +148,7 @@ function App() {
         </div>
         <button className="small-btn info" id="idbtn" onClick={HandleInfoClick}>{ info ? <i className="fas fa-times"></i> : <i className="fas fa-info"></i>}</button>
       </div>
-      <LandingPage start={start} setStart={setStart} HandleStartClick={HandleStartClick}/>
+      <LandingPage HandleStartClick={HandleStartClick}/>
       <FormPage complete={complete} setComplete={setComplete} 
       HandleCompleteClick={HandleCompleteClick} setUserData={setUserData}/>
       <Dashboard userData={userData} HandleExitClick={HandleExitClick} counter={counter} setCounter={setCounter} 

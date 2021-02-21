@@ -1,7 +1,7 @@
 import React from 'react' 
 
 
-function LandingPage({start, setStart, HandleStartClick}) {
+function LandingPage({ HandleStartClick}) {
 
     return (
         <div id="landing" className="landing-page comp">

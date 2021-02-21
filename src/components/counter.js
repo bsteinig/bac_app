@@ -1,10 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import '../App.css';
 
-var initialhour   = new Date().getHours();
-var initialminute = new Date().getMinutes();
-var initialsecond = new Date().getSeconds();
-
 function Counter({userData, HandleExitClick, counter, setCounter, initTime, setInitTime}) {
   const [drunk, setDrunk] = useState(false);
   const [currenthour, setCurrHour] = useState(0);
@@ -18,7 +14,6 @@ function Counter({userData, HandleExitClick, counter, setCounter, initTime, setI
       setCurrHour(new Date().getHours())
       setCurrMin(new Date().getMinutes())
       setCurrSec(new Date().getSeconds())
-      console.log("init time: ", initTime.hour, initTime.minutes, initTime.seconds)
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -31,7 +26,7 @@ function Counter({userData, HandleExitClick, counter, setCounter, initTime, setI
   var math2 = 0;
   var diff = 0;
   math = currenthour*3600 + currentminute*60 + currentsecond;
-  math2 = initialhour*3600 + initialminute*60 + initialsecond;
+  math2 = initTime.hour*3600 + initTime.minutes*60 + initTime.seconds;
   diff = math-math2;
 
   if(diff >= 0){
@@ -52,31 +47,53 @@ function Counter({userData, HandleExitClick, counter, setCounter, initTime, setI
 
   const handleButtonClick = () => {
       setCounter(counter => counter + 1)
+      if(counter < 1){
+        setInitTime( {
+          hour: new Date().getHours(),
+          minutes: new Date().getMinutes(),
+          seconds: new Date().getSeconds()
+      });
+      }
   }
 
   const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 3,      
     maximumFractionDigits: 3,
   });
-
   return (
     <div className="onTop">
-      <div className ="clock"></div>
-        <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}} >
-                {(Math.floor(hour%12)).toString().padStart(2, '0')}:
-                {Math.floor(minute).toString().padStart(2, '0')}:
-                {Math.floor(second).toString().padStart(2, '0')}</div>
+
+    <div class="clock">
+    <div class="outer-clock-face">
+      <div class="marking marking-one"></div>
+      <div class="marking marking-two"></div>
+      <div class="marking marking-three"></div>
+      <div class="marking marking-four"></div>
+      <div class="inner-clock-face">
+        <div className ="data" className ="clock-time">
+                  {(Math.floor(hour%12)).toString().padStart(2, '0')}:
+                  {Math.floor(minute).toString().padStart(2, '0')}:
+                  {Math.floor(second).toString().padStart(2, '0')}
+          </div>
+      </div>
+    </div>
+    </div>
       <h1 className ="bac-title">BAC:</h1>
       <h1 className ="bac-num"> 
         {(counter*.4*1.5*5.4)/(weight*sex) - .015*(hour) > 0 ? formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(hour)) : formatter.format(0.000)}
       </h1>
       <div className ="data"> Drinks: <span className="drink-count"> {counter} | </span> Drinks/Hour: <span className="drink-count"> {hour > 0 ? Math.floor(counter/hour) : counter} </span> </div>
       <div className="btn-group">
-        <button className="med-btn" onClick={handleButtonClick}><i className="fas fa-beer"></i><h1>Add Drink</h1></button>
-        <button className="med-btn" onClick={HandleExitClick}><i className="fas fa-check"></i><h1>Finished</h1></button>
+        <button className="med-btn color-btn" onClick={handleButtonClick}><i className="fas fa-beer"></i><h1>Add Drink</h1></button>
+        <button className="med-btn color-btn" onClick={HandleExitClick}><i className="fas fa-check"></i><h1>Finished</h1></button>
       </div>
     </div>
   );
 }
 
 export default Counter;
+ 
+
+/* 
+
+    */
