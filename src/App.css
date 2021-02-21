@@ -382,6 +382,8 @@ Info Popup
   opacity: 0;
   transition: .5s ease-in-out;;
   transform: translateX(-100%);
+  font-family: var(--diplay-font);
+  font-size: 20px;
 }
 
 .show-info {
@@ -436,11 +438,12 @@ Dashboard
   border-radius: 50%;
   width: 15rem;
   height: 15rem;
-  background-color: whitesmoke;
+  background-color:#fefefc;
   display: grid;
   place-items: center;
   overflow: hidden;
-  margin: 25px auto;
+  margin: .5rem auto .75rem auto;
+  padding: .3rem;
 }
 
 .clock-time {

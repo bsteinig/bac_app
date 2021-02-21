@@ -148,7 +148,7 @@ function App() {
         </div>
         <button className="small-btn info" id="idbtn" onClick={HandleInfoClick}>{ info ? <i className="fas fa-times"></i> : <i className="fas fa-info"></i>}</button>
       </div>
-      <LandingPage HandleStartClick={HandleStartClick}/>
+      <LandingPage HandleStartClick={HandleStartClick} counter={counter}/>
       <FormPage complete={complete} setComplete={setComplete} 
       HandleCompleteClick={HandleCompleteClick} setUserData={setUserData}/>
       <Dashboard userData={userData} HandleExitClick={HandleExitClick} counter={counter} setCounter={setCounter} 

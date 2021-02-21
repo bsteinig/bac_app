@@ -1,7 +1,7 @@
 import React from 'react' 
 
 
-function LandingPage({ HandleStartClick}) {
+function LandingPage({ HandleStartClick, counter}) {
 
     return (
         <div id="landing" className="landing-page comp">
@@ -10,7 +10,7 @@ function LandingPage({ HandleStartClick}) {
                 <h4 className= "sub-head"> Know your limits. </h4>
                 <h4 className= "sub-head"> Be safe. </h4>
             </div>
-            <button className="btn landing-btn" onClick={HandleStartClick}>Get Started</button>
+            <button className="btn landing-btn" onClick={HandleStartClick}>{ counter ? "Back to Menu" : "Get Started"}</button>
             
         </div>
         
