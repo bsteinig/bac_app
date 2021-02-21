@@ -1,24 +1,24 @@
 import React, {useState, useEffect } from 'react'
 import '../App.css';
-import ReactTimer from "@xendora/react-timer"
 
+var initialhour   = new Date().getHours();
+var initialminute = new Date().getMinutes();
+var initialsecond = new Date().getSeconds();
 
-let initialhour = new Date().getHours();
-let initialminute = new Date().getMinutes();
-let initialsecond = new Date().getSeconds();
-
-function Counter({userData, HandleExitClick}) {
+function Counter({userData, HandleExitClick, counter, setCounter, initTime, setInitTime}) {
   const [drunk, setDrunk] = useState(false);
   const [currenthour, setCurrHour] = useState(0);
   const [currentminute, setCurrMin] = useState(0);
   const [currentsecond, setCurrSec] = useState(0);
-  const [counter, setCounter] = useState(0)
+  
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrHour(new Date().getHours())
       setCurrMin(new Date().getMinutes())
       setCurrSec(new Date().getSeconds())
+      console.log("init time: ", initTime.hour, initTime.minutes, initTime.seconds)
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -40,9 +40,11 @@ function Counter({userData, HandleExitClick}) {
     second = Math.floor(diff%60);
   }
   else{
-    hour = 24 + currenthour - initialhour;
-    minute = 60 + currentminute - initialminute;
-    second = 60 + currentsecond - initialsecond;
+    var diff2 = 0;
+    diff2 = 24*3600 + diff
+    hour = Math.floor(diff2/3600);
+    minute = Math.floor((diff2/60)%60);
+    second = Math.floor(diff2%60);
   }
 
   const weight = parseInt(userData.weight);
@@ -59,36 +61,16 @@ function Counter({userData, HandleExitClick}) {
 
   return (
     <div className="onTop">
-        <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}} >
-                {(Math.floor(initialhour%12)).toString().padStart(2, '0')}:
-                {Math.floor(initialminute).toString().padStart(2, '0')}:
-                {Math.floor(initialsecond).toString().padStart(2, '0')}</div>
-        <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}} >
-                {(Math.floor(currenthour%12)).toString().padStart(2, '0')}:
-                {Math.floor(currentminute).toString().padStart(2, '0')}:
-                {Math.floor(currentsecond).toString().padStart(2, '0')}</div>
+      <div className ="clock"></div>
         <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}} >
                 {(Math.floor(hour%12)).toString().padStart(2, '0')}:
                 {Math.floor(minute).toString().padStart(2, '0')}:
                 {Math.floor(second).toString().padStart(2, '0')}</div>
-        <ReactTimer
-        start={0}
-        end={() => false}
-        onEnd={value => console.log('ENDED WITH VALUE', value)}
-        onTick={value => value + 1}
-      >
-        {time => 
-            <div>
-              <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}} > 
-                {(Math.floor(time/3600)).toString().padStart(2, '0')}:
-                {Math.floor((time/60)%60).toString().padStart(2, '0')}:
-                {Math.floor(time%60).toString().padStart(2, '0')}</div>
-              <div className ="bac" style={{color: "#233043", fontFamily: "Poppins,sans-serif", fontSize: "75px"}}>BAC: </div>
-              <div className ="bac" style={{color: "#233043", fontFamily: "Poppins,sans-serif", fontSize: "75px"}}> 
-                {(counter*.4*1.5*5.4)/(weight*sex) - .015*(time/3600) > 0 ? formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(time/3600)) : formatter.format(0.000)}</div>
-            </div>}
-      </ReactTimer>
-      <div className ="data" style={{color: "whitesmoke", fontFamily: "Poppins,sans-serif", fontSize: "25px"}}> Drinks: {counter} | Drinks/Hour: {hour > 0 ? counter/hour : counter}</div>
+      <h1 className ="bac-title">BAC:</h1>
+      <h1 className ="bac-num"> 
+        {(counter*.4*1.5*5.4)/(weight*sex) - .015*(hour) > 0 ? formatter.format((counter*.4*1.5*5.4)/(weight*sex) - .015*(hour)) : formatter.format(0.000)}
+      </h1>
+      <div className ="data"> Drinks: <span className="drink-count"> {counter} | </span> Drinks/Hour: <span className="drink-count"> {hour > 0 ? Math.floor(counter/hour) : counter} </span> </div>
       <div className="btn-group">
         <button className="med-btn" onClick={handleButtonClick}><i className="fas fa-beer"></i><h1>Add Drink</h1></button>
         <button className="med-btn" onClick={HandleExitClick}><i className="fas fa-check"></i><h1>Finished</h1></button>

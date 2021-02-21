@@ -2,7 +2,7 @@
 Global Styling
 *********/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500&display=swap');
 
 :root {
@@ -120,6 +120,7 @@ transition: 1s ease-in-out;
   cursor: pointer;	 
   font-size: 2rem;	   
   z-index: 1000;
+  transition: 1.5s ease-in-out;
 }
 
 .home {
@@ -345,6 +346,7 @@ Button Styling
 	font-weight: 500;
 	padding: .3rem .7rem;
 	text-decoration: none;
+  min-width: 4rem;
 }
 
 .spacer {
@@ -385,5 +387,48 @@ Info Popup
 
 .onTop {
   width: 100%;
+  display: grid;
+  place-items: center;
 }
 
+/**********
+Dashboard
+**********/
+
+.clock {
+  border-radius: 10rem;
+  width: 10rem;
+  height: 10rem;
+  background-color: whitesmoke;
+}
+
+.bac-title {
+  font-family: var(--diplay-font);
+  font-size: 3.75rem;
+  color: var(--med-blue);
+  font-weight: 700;
+  font-stretch: extra-condensed;
+  line-height: 3.5rem;
+  margin-bottom: .25rem;
+}
+
+.bac-num {
+  font-family: var(--diplay-font);
+  font-size: 6rem;
+  color: var(--med-blue);
+  font-weight: 700;
+  line-height: 5rem;
+}
+
+.data {
+  font-weight: 700;
+  margin-top: .3rem;
+  margin-bottom: .25rem;
+  font-family: var(--diplay-font);
+  font-size: 1.7rem;
+  color: var(--med-blue);
+}
+
+.drink-count {
+  color: var(--dark-blue);
+}

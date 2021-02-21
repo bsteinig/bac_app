@@ -3,11 +3,13 @@ import Counter from './counter'
 import Info from './info'
 
 
-function Dashboard({userData, complete, setStart, setComplete, HandleHomeClick, HandleExitClick}) {
+function Dashboard({userData, HandleExitClick, counter, setCounter, initTime, setInitTime}) {
 
     return (
         <div className="dashboard-page comp" id="dashboard">
-            <Counter userData={userData} HandleExitClick={HandleExitClick}/>
+            <Counter userData={userData} HandleExitClick={HandleExitClick}
+                 counter={counter} setCounter={setCounter} 
+                 initTime={initTime} setInitTime={setInitTime}/>
         </div>
     )
 }

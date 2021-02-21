@@ -10,6 +10,13 @@ import dash from './assets/DashboardScreen.png'
 import './App.css';
 
 function App() {
+
+    const [counter, setCounter] = useState(0);
+    const [initTime, setInitTime] = useState({
+        hour: new Date().getHours(),
+        minutes: new Date().getMinutes(),
+        seconds: new Date().getSeconds()
+    })
     const [start, setStart] = useState(true);
     const [complete, setComplete] = useState(false);
     const [info, setInfo] = useState(false);
@@ -50,6 +57,7 @@ function App() {
       document.getElementById("outer-circle").style.height = "160px"
       document.getElementById("outer-circle").style.width = "160px";
     }
+    
     document.getElementById("landing").style.height = "0";
     document.getElementById("landing").style.opacity = "0";
   }
@@ -68,6 +76,7 @@ function App() {
     document.getElementById("circle").style.width = "65px"
     document.getElementById("outer-circle").style.height = "70px"
     document.getElementById("outer-circle").style.width = "70px";
+
   }
 
   const HandleHomeClick = () => {
@@ -89,6 +98,7 @@ function App() {
   const HandleExitClick = () => {
     setStart(true);
     setComplete(false);
+    setCounter(0);
     document.getElementById("dashboard").style.height = "0";
     document.getElementById("dashboard").style.opacity = "0";
     document.getElementById("landing").style.opacity = "1"; 
@@ -119,8 +129,8 @@ function App() {
       <LandingPage start={start} setStart={setStart} HandleStartClick={HandleStartClick}/>
       <FormPage complete={complete} setComplete={setComplete} 
       HandleCompleteClick={HandleCompleteClick} setUserData={setUserData}/>
-      <Dashboard userData={userData} complete={complete} setStart={setStart} setComplete={setComplete} 
-        HandleHomeClick={HandleHomeClick} HandleExitClick={HandleExitClick}/>
+      <Dashboard userData={userData} HandleExitClick={HandleExitClick} counter={counter} setCounter={setCounter} 
+            initTime={initTime} setInitTime={setInitTime}/>
       <Info info={info}/>
     </div>
   )
