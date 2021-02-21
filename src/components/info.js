@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import '../App.css';
 
 function Info({info}) {
-  const [buttonClicked, setClicked] = useState(false)
 
   return (
     <div className={`info-screen ${info ? "show-info" : ""}`} >

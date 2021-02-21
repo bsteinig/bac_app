@@ -1,7 +1,5 @@
 import React from 'react' 
 import Counter from './counter'
-import Info from './info'
-
 
 function Dashboard({userData, HandleExitClick, counter, setCounter, initTime, setInitTime}) {
 

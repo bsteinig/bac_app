@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react'
 import '../App.css';
 
 function Counter({userData, HandleExitClick, counter, setCounter, initTime, setInitTime}) {
-  const [drunk, setDrunk] = useState(false);
+  //const [drunk, setDrunk] = useState(false);
   const [currenthour, setCurrHour] = useState(0);
   const [currentminute, setCurrMin] = useState(0);
   const [currentsecond, setCurrSec] = useState(0);
@@ -70,7 +70,7 @@ function Counter({userData, HandleExitClick, counter, setCounter, initTime, setI
       <div class="marking marking-three"></div>
       <div class="marking marking-four"></div>
       <div class="inner-clock-face">
-        <div className ="data" className ="clock-time">
+        <div className ="data clock-time">
                   {(Math.floor(hour%12)).toString().padStart(2, '0')}:
                   {Math.floor(minute).toString().padStart(2, '0')}:
                   {Math.floor(second).toString().padStart(2, '0')}
@@ -92,8 +92,3 @@ function Counter({userData, HandleExitClick, counter, setCounter, initTime, setI
 }
 
 export default Counter;
- 
-
-/* 
-
-    */
