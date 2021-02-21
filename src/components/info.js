@@ -1,31 +1,21 @@
 import React, {useState} from 'react'
 import '../App.css';
 
-function Info() {
+function Info({info}) {
   const [buttonClicked, setClicked] = useState(false)
 
-  const HandleBtnClick = () => {
-    setClicked(!buttonClicked)
-    console.log(buttonClicked)
-  }
-
   return (
-    <div>
-        <div className="info-bar">
-          <button onClick={HandleBtnClick} className="info-btn"> <i className="fas fa-info-circle"></i> </button>
-        </div>
-          <div className={`info-screen ${buttonClicked ? "show-info" : ""}`}>
+    <div className={`info-screen ${info ? "show-info" : ""}`} >
           <ul className="stats">
-            <li>.40% - coma </li>
-            <li>.30% - in a drunken stupor </li>
-            <li>.25% - emotionally and physically numb </li>
-            <li>.20% - vomiting </li>
-            <li>.15% - possible blackout (memory loss) </li>
-            <li>.10% - lack of coordination and balance (legally drunk) </li>
-            <li>.05% - warm and relaxed </li>
-            <li>.02% - little lightheaded </li>
+            <li><em>0.400</em><br/>  coma </li>
+            <li><em>0.350</em><br/>  in a drunken stupor </li>
+            <li><em>0.300</em><br/>  emotionally and physically numb </li>
+            <li><em>0.250</em><br/>  vomiting </li>
+            <li><em>0.200</em><br/>  possible blackout (memory loss) </li>
+            <li><em>0.100</em><br/>  lack of coordination and balance (legally drunk) </li>
+            <li><em>0.050</em><br/>  warm and relaxed </li>
+            <li><em>0.020</em><br/>  little lightheaded </li>
         </ul> 
-        </div>
     </div>
   );
 }

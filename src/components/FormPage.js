@@ -1,5 +1,5 @@
 import React from 'react'
-import { Formik, Form as Formk ,Field, ErrorMessage } from 'formik'
+import { Formik, Form as Formk ,Field, ErrorMessage} from 'formik'
 import * as yup from 'yup' 
 import '../App.css';
 
@@ -26,6 +26,8 @@ function FormPage({complete, setComplete, HandleCompleteClick, setUserData}) {
             sex: values.sex,
             weight: values.weight
         });
+        values.sex=''
+        values.weight=''
         HandleCompleteClick();
     }
 
@@ -45,7 +47,6 @@ function FormPage({complete, setComplete, HandleCompleteClick, setUserData}) {
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </Field>
-                    <br/>
                     <ErrorMessage name="sex" render={msg => <div className="error-msg">{msg}</div>} />
                     <div className="spacer"/>
                 </div>

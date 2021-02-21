@@ -7,10 +7,7 @@ function Dashboard({userData, complete, setStart, setComplete, HandleHomeClick, 
 
     return (
         <div className="dashboard-page comp" id="dashboard">
-            <Info />
-            <Counter userData={userData}/>
-            <button onClick={HandleHomeClick}>Home</button>
-            <button onClick={HandleExitClick}>Finished</button>
+            <Counter userData={userData} HandleExitClick={HandleExitClick}/>
         </div>
     )
 }
